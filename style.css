@@ -1,0 +1,113 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+#join-container {
+    text-align: center;
+}
+#game-container {
+    display: none;
+}
+
+h1 {
+    background-color: var(--light-color);
+    color: white;
+    font: bold 80px 'Verdana';
+    width: 700px;
+    text-align: center;
+    margin: auto;
+
+    border-radius: 20px;
+    padding: 10px;
+    margin-top: 40px;
+}
+h2 {
+    font: bold 40px 'Verdana';
+    color: #b1b1b1;
+    width: max-content;
+    margin: auto;
+    margin-top: 15px;
+}
+
+h3 {
+    font: bold 35px 'Caladea';
+    margin: 5px;
+    margin-top: 50px;
+}
+
+button {
+    background-color: var(--basic-color);
+    color: white;
+    font: bold 30px 'Verdana';
+    padding: 10px;
+    
+    border: solid #b4b4b4 3px;
+    border-radius: 10px;
+    width: 250px;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+@keyframes card-anim {
+    to {
+        transform: rotateY(180deg) scaleX(-1);
+    }
+}
+
+button:hover {
+    background-color: var(--dark-color);
+}
+
+select {
+    background-color: var(--dark-color);
+    color: white;
+    font: bold 45px 'Verdana';
+    border: solid white 2px;
+    border-radius: 10px;
+    width: 350px;
+    padding: 2px;
+    text-align: center;
+}
+
+#memory-div, #menu-div {
+    width: max-content;
+    margin: auto;
+    margin-top: 40px;
+    
+    border-radius: 20px;
+    padding: 20px;
+    background: linear-gradient(to right bottom, var(--dark-color), var(--basic-color));
+}
+
+:root {
+    --dark-color: #4e0b1f;
+    --basic-color: #7d1433;
+    --light-color: #af4464;
+}
+.memory-card {
+    width: var(--size);
+    height: var(--size);
+    
+    float: left;
+    margin: 5px;
+    border: solid white 3px;
+    border-radius: 3px;
+
+    user-select: none;
+    cursor: pointer;
+    text-align: center;
+}
+.memory-card img {
+    height: 100%;
+    image-rendering: pixelated;
+}
+
+.hidden {
+    background: radial-gradient(var(--light-color), var(--basic-color));
+    font: bold var(--font-size) 'Caladea';
+    line-height: var(--size);
+}
+.shown {
+    overflow: hidden;
+}
