@@ -5,7 +5,7 @@ const cardsSizes = [96, 70, 54];
 const joinContainer = document.getElementById("join-container");
 const gameContainer = document.getElementById("game-container");
 
-const style = document.querySelector(":root").style;
+const rootStyles = document.querySelector(":root").style;
 const div = document.getElementById("memory-div");
 
 const FLAGS_AMOUNT = 32;
@@ -102,8 +102,8 @@ function startGame() {
     const cardSize = cardsSizes[index];
     const SCALE = 4/7;
 
-    style.setProperty("--size", cardSize + "px");
-    style.setProperty("--font-size", (cardSize * SCALE) + "px");
+    rootStyles.setProperty("--size", cardSize + "px");
+    rootStyles.setProperty("--font-size", (cardSize * SCALE) + "px");
     
     joinContainer.style.display = "none";
     gameContainer.style.display = "block";
