@@ -11,6 +11,7 @@ const div = document.getElementById("memory-div");
 const FLAGS_AMOUNT = 32;
 let memoryCards = [];
 let clicks = [];
+const images = [];
 
 const CLASS_MEMORY_CARD = "memory-card";
 const CLASS_SHOWN = "memory-card shown";
@@ -53,7 +54,8 @@ class MemoryCard {
     }
     showImage() {
         this.div.className = CLASS_SHOWN;
-        this.div.innerHTML = `<img src='flags/flag_${this.imageIndex}.png'>`;
+        this.div.innerHTML = "";
+        this.div.appendChild(this.image);
     }
     hideImage() {
         this.div.className = CLASS_HIDDEN;
@@ -81,6 +83,15 @@ class MemoryCard {
 function init() {
     for(let size of boardSizes) {
         modeSelect.innerHTML += "<option>" + (size + "x" + size) + "</option>"
+    }
+    loadImages();
+}
+
+function loadImages() {
+    for(let i = 0; i < FLAGS_AMOUNT; i++) {
+        const image = document.createElement("img");
+        image.src = "flags/flag_" + (i + 1) + ".png";
+        images.push(image);
     }
 }
 
@@ -117,7 +128,9 @@ function startGame() {
     flagsIndexes = shuffleArray(flagsIndexes);
    
     for(let i = 0; i < flagsIndexes.length; i++) {
-        memoryCards[i].imageIndex = flagsIndexes[i];
+        const index = flagsIndexes[i];
+        memoryCards[i].imageIndex = index;
+        memoryCards[i].image = images[index].cloneNode();
     }
 }
 
